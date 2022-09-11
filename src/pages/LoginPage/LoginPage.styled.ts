@@ -13,7 +13,7 @@ export const LogoTitle = styled.h1`
 `;
 
 export const ImageSection = styled.section`
-  width: 780px;
+  width: 50%;
   background: #bddcf7;
   padding: 30px;
   display: flex;

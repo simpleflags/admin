@@ -1,5 +1,11 @@
-import { Button, Divider, PasswordInput, TextInput } from "@mantine/core";
-import { BrandGithub, BrandGitlab, BrandGoogle } from "tabler-icons-react";
+import { Button, PasswordInput, TextInput } from "@mantine/core";
+import {
+  BrandGithub,
+  BrandGitlab,
+  BrandGoogle,
+  Trophy,
+} from "tabler-icons-react";
+import { api } from "../../api";
 import {
   FormWrapper,
   HelperText,
@@ -11,12 +17,22 @@ import {
 } from "./LoginForm.styled";
 
 export function LoginForm() {
+  const signinWithGitHub = async () => {
+    try {
+      const response = await api.get("/api/login/github");
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Wrapper>
       <Title>Sign in</Title>
 
       <FormWrapper>
         <Button
+          onClick={signinWithGitHub}
           fullWidth
           leftIcon={<BrandGithub />}
           sx={(theme) => ({
