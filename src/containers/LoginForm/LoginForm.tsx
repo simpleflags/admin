@@ -22,6 +22,7 @@ export function LoginForm() {
       const response = await api.get("/api/login/github");
       console.log(response);
     } catch (error) {
+      debugger;
       console.log(error);
     }
   };
