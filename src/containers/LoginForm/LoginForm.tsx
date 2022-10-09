@@ -1,11 +1,5 @@
 import { Button, PasswordInput, TextInput } from "@mantine/core";
-import {
-  BrandGithub,
-  BrandGitlab,
-  BrandGoogle,
-  Trophy,
-} from "tabler-icons-react";
-import { api } from "../../api";
+import { BrandGithub, BrandGitlab, BrandGoogle } from "tabler-icons-react";
 import {
   FormWrapper,
   HelperText,
@@ -15,14 +9,13 @@ import {
   Title,
   Wrapper,
 } from "./LoginForm.styled";
+const baseApiUrl = import.meta.env.VITE_BASE_URL?.toString();
 
 export function LoginForm() {
   const signinWithGitHub = async () => {
     try {
-      const response = await api.get("/api/login/github");
-      console.log(response);
-    } catch (error) {
-      debugger;
+      window.location.href = `${baseApiUrl}api/login/github`;
+    } catch (error: any) {
       console.log(error);
     }
   };
