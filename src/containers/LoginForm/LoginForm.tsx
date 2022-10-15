@@ -12,21 +12,15 @@ import {
 const baseApiUrl = import.meta.env.VITE_BASE_URL?.toString();
 
 export function LoginForm() {
-  const signinWithGitHub = async () => {
-    try {
-      window.location.href = `${baseApiUrl}api/login/github`;
-    } catch (error: any) {
-      console.log(error);
-    }
-  };
-
   return (
     <Wrapper>
       <Title>Sign in</Title>
 
       <FormWrapper>
         <Button
-          onClick={signinWithGitHub}
+          onClick={() =>
+            (window.location.href = `${baseApiUrl}api/login/github`)
+          }
           fullWidth
           leftIcon={<BrandGithub />}
           sx={(theme) => ({
@@ -45,6 +39,10 @@ export function LoginForm() {
           Sign in with Github
         </Button>
         <Button
+          // WIP flow for gitlab
+          // onClick={() =>
+          //   (window.location.href = `${baseApiUrl}api/login/gitlab`)
+          // }
           fullWidth
           leftIcon={<BrandGitlab />}
           sx={(theme) => ({
