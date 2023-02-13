@@ -1,5 +1,7 @@
 import { Button, PasswordInput, TextInput } from "@mantine/core";
+import { useNavigate } from "react-router-dom";
 import { BrandGithub, BrandGitlab, BrandGoogle } from "tabler-icons-react";
+
 import {
   FormWrapper,
   HelperText,
@@ -12,6 +14,7 @@ import {
 const baseApiUrl = import.meta.env.VITE_BASE_URL?.toString();
 
 export function LoginForm() {
+  const navigate = useNavigate();
   return (
     <Wrapper>
       <Title>Sign in</Title>
@@ -82,7 +85,10 @@ export function LoginForm() {
           />
           <PasswordInput placeholder="*******" label="Password" radius="md" />
           <HelperText>
-            <LinkText>Forgot password?</LinkText>
+            <LinkText onClick={() => navigate("/signup")}>Sign Up</LinkText>
+            <LinkText onClick={() => navigate("/forgot-password")}>
+              Forgot password?
+            </LinkText>
           </HelperText>
         </InputsWrapper>
 
