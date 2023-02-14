@@ -2,9 +2,8 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import { LoginPage } from "./pages";
-import { SignUp } from "./pages/SignUpPage/SignUp";
 import { ForgotPage } from "./pages/ForgotPassword/ForgotPage";
-
+import { SignupPage } from "./pages/SignupPage/SignupPage";
 export default function AppRouter() {
   return (
     <Routes>
@@ -12,7 +11,7 @@ export default function AppRouter() {
         <Route index element={<Home />} />
       </Route>
       <Route path="login" element={<LoginPage />} />
-      <Route path="signup" element={<SignUp />} />
+      <Route path="signup" element={<SignupPage />} />
       <Route path="forgot-password" element={<ForgotPage />} />
 
       <Route path="*" element={<h1>Not found page</h1>} />

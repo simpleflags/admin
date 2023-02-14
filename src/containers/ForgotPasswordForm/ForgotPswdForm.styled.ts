@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  width: 450px;
+  width: 29em;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 `;
 export const Title = styled.h1`
   color: ${({ theme }) => theme.colors.lightBlue};
-  font-size: 26px;
+  font-size: 1.7em;
 `;
 
 export const FormWrapper = styled.div`
@@ -23,22 +23,4 @@ export const FormWrapper = styled.div`
 export const InputsWrapper = styled.div`
   width: 100%;
   margin-bottom: 10px;
-`;
-
-export const LinkText = styled.h1`
-  font-weight: 600;
-  font-size: 14px;
-  text-decoration: none;
-  cursor: pointer;
-  display: inline-block;
-  justify-content: space-between;
-  padding: 0 12px;
-  color: ${({ theme }) => theme.colors.lightBlue};
-`;
-export const Text = styled.div`
-  font-size: 12px;
-  font-weight: 500;
-  width: 450px;
-  font-weight: 500;
-  margin-left: 7px;
 `;

@@ -47,6 +47,5 @@ export const HelperText = styled.div`
 export const LinkText = styled.h1`
   font-weight: 600;
   font-size: 14px;
-  text-decoration: none;
   cursor: pointer;
 `;

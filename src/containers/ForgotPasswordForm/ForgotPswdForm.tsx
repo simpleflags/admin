@@ -4,12 +4,10 @@ import {
   Title,
   FormWrapper,
   InputsWrapper,
-} from "./ForgotPassForm.styled";
+} from "./ForgotPswdForm.styled";
 import { Button } from "@mantine/core";
-import { useNavigate } from "react-router-dom";
 
-export function ForgotPassForm() {
-  const navigate = useNavigate();
+export function ForgotPswdForm() {
   return (
     <Wrapper>
       <Title>Forgot Password</Title>

@@ -7,7 +7,7 @@ import {
   PageWrapper,
 } from "./LoginPage.styled";
 import { LoginForm } from "../../containers";
-import { SignUp } from "../SignUpPage/SignUp";
+import { SignUp } from "../SignupPage/SignupPage";
 
 //TODO: Put real logo where is <LogoTitle></LogoTitle>
 

@@ -1,3 +1,3 @@
 export { LoginForm } from "./LoginForm/LoginForm";
-export { SignUpForm } from "./SignUpForm/SignUpForm";
-export { ForgotPassForm } from "./ForgotPasswordForm/ForgotPassForm";
+export { SignupForm } from "./SignupForm/SignupForm";
+export { ForgotPswdForm } from "./ForgotPasswordForm/ForgotPswdForm";

@@ -1,10 +1,10 @@
-import { PageWrapper } from "./SignUp.styled";
-import { ImageSection, FormSection } from "./SignUp.styled";
+import { PageWrapper } from "./SignupPage.styled";
+import { ImageSection, FormSection } from "./SignupPage.styled";
 import { Image } from "@mantine/core";
 import ff_login from "../../assets/images/ff-login.png";
-import { SignUpForm } from "../../containers/SignUpForm/SignUpForm";
+import { SignupForm } from "../../containers/SignupForm/SignupForm";
 
-export function SignUp() {
+export function SignupPage() {
   return (
     <PageWrapper>
       <ImageSection>
@@ -12,7 +12,7 @@ export function SignUp() {
       </ImageSection>
 
       <FormSection>
-        <SignUpForm />
+        <SignupForm />
       </FormSection>
     </PageWrapper>
   );

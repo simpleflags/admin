@@ -1,6 +1,6 @@
-import { PasswordInput, TextInput, Button } from "@mantine/core";
+import { PasswordInput, TextInput, Button, Container } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
-
+import { Anchor } from "@mantine/core";
 import {
   FormWrapper,
   InputsWrapper,
@@ -8,9 +8,9 @@ import {
   Title,
   Wrapper,
   Text,
-} from "../SignUpForm/SignUpForm.styled";
+} from "./SignupForm.styled";
 
-export function SignUpForm() {
+export function SignupForm() {
   const navigate = useNavigate();
   return (
     <Wrapper>
@@ -37,22 +37,22 @@ export function SignUpForm() {
           Sign Up
         </Button>
         <Text>
-          <p>
-            By signing up, you agree to our
-            <a href="#"> Privacy Policy</a> and our{" "}
-            <a href="#"> Terms of Use</a>
-          </p>
+          By signing up, you agree to our
+          <Anchor href="#" size="xs">
+            {" "}
+            Privacy Policy
+          </Anchor>{" "}
+          and our
+          <Anchor href="#" size="xs">
+            {" "}
+            Terms of Use
+          </Anchor>
         </Text>
       </FormWrapper>
-      <span
-        style={{
-          marginLeft: "6px",
-          paddingTop: "20px",
-        }}
-      >
+      <Container>
         Already have an account?
         <LinkText onClick={() => navigate("/login")}> Sign In </LinkText>
-      </span>
+      </Container>
     </Wrapper>
   );
 }

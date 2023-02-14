@@ -1,7 +1,7 @@
 import { PageWrapper, ImageSection, FormSection } from "./ForgotPage.styled";
 import { Image } from "@mantine/core";
 import ff_login from "../../assets/images/ff-login.png";
-import { ForgotPassForm } from "../../containers/ForgotPasswordForm/ForgotPassForm";
+import { ForgotPassForm } from "../../containers/ForgotPasswordForm/ForgotPswdForm";
 export function ForgotPage() {
   return (
     <PageWrapper>
