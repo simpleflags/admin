@@ -39,12 +39,10 @@ export function SignupForm() {
         <Text>
           By signing up, you agree to our
           <Anchor href="#" size="xs">
-            {" "}
             Privacy Policy
-          </Anchor>{" "}
+          </Anchor>
           and our
           <Anchor href="#" size="xs">
-            {" "}
             Terms of Use
           </Anchor>
         </Text>
