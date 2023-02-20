@@ -5,7 +5,9 @@ function Home() {
   return (
     <Wrapper>
       Home Page <br />
-      login - /login
+      login - /login <br />
+      signup - /signup <br />
+      forgot-password - /forgot-password
     </Wrapper>
   );
 }

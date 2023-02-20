@@ -1,17 +1,10 @@
+import { PageWrapper } from "./SignupPage.styled";
+import { ImageSection, FormSection } from "./SignupPage.styled";
 import { Image } from "@mantine/core";
 import ff_login from "../../assets/images/ff-login.png";
-import {
-  FormSection,
-  ImageSection,
-  LogoTitle,
-  PageWrapper,
-} from "./LoginPage.styled";
-import { LoginForm } from "../../containers";
-import { SignUp } from "../SignupPage/SignupPage";
+import { SignupForm } from "../../containers/SignupForm/SignupForm";
 
-//TODO: Put real logo where is <LogoTitle></LogoTitle>
-
-export function LoginPage() {
+export function SignupPage() {
   return (
     <PageWrapper>
       <ImageSection>
@@ -19,7 +12,7 @@ export function LoginPage() {
       </ImageSection>
 
       <FormSection>
-        <LoginForm />
+        <SignupForm />
       </FormSection>
     </PageWrapper>
   );

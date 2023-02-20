@@ -1,17 +1,8 @@
+import { PageWrapper, ImageSection, FormSection } from "./ForgotPage.styled";
 import { Image } from "@mantine/core";
 import ff_login from "../../assets/images/ff-login.png";
-import {
-  FormSection,
-  ImageSection,
-  LogoTitle,
-  PageWrapper,
-} from "./LoginPage.styled";
-import { LoginForm } from "../../containers";
-import { SignUp } from "../SignupPage/SignupPage";
-
-//TODO: Put real logo where is <LogoTitle></LogoTitle>
-
-export function LoginPage() {
+import { ForgotPassForm } from "../../containers/ForgotPasswordForm/ForgotPswdForm";
+export function ForgotPage() {
   return (
     <PageWrapper>
       <ImageSection>
@@ -19,7 +10,7 @@ export function LoginPage() {
       </ImageSection>
 
       <FormSection>
-        <LoginForm />
+        <ForgotPassForm />
       </FormSection>
     </PageWrapper>
   );
