@@ -3,7 +3,7 @@ import { Select, Text } from "@mantine/core";
 import { Search, Products } from "./Nav.styled";
 import { DropDown } from "./DropDown/DropDown";
 
-export function NavbarSection() {
+export function NavBarSection() {
   return (
     <Nav>
       <DropDown />

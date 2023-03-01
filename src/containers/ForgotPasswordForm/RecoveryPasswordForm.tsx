@@ -4,10 +4,10 @@ import {
   Title,
   FormWrapper,
   InputsWrapper,
-} from "./ForgotPswdForm.styled";
+} from "./RecoveryPasswordForm.styled";
 import { Button } from "@mantine/core";
 
-export function ForgotPswdForm() {
+export function RecoveryPasswordForm() {
   return (
     <Wrapper>
       <Title>Forgot Password</Title>

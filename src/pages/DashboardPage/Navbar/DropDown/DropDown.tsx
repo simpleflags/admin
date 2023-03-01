@@ -1,5 +1,5 @@
 import { Avatar } from "@mantine/core";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ArrowNarrowDown, ArrowNarrowRight } from "tabler-icons-react";
 import { Profile } from "./DropDown.styled";
 import {
@@ -7,23 +7,42 @@ import {
   DropdownMenu,
   DropdownAcc,
   DropdownOrg,
+  DropdownItem,
   SignOut,
 } from "./DropDown.styled";
 import { Text } from "@mantine/core";
 
 export function DropDown() {
-  const [state, setState] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLUListElement>(null);
 
-  const showDropdown = () => {
-    setState(true);
-  };
+  useEffect(() => {
+    const handleClickOutside = (event: any) => {
+      if (dropdownRef.current && !dropdownRef.current?.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
 
-  const hideDropdown = () => {
-    setState(false);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownRef]);
+  const Icon = () => {
+    return (
+      <ArrowNarrowRight
+        size={15}
+        strokeWidth={2}
+        color={"black"}
+        style={{
+          paddingRight: "5%",
+        }}
+      />
+    );
   };
   const isBackground = true;
   return (
-    <Dropdown onClick={showDropdown}>
+    <Dropdown onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
       <Profile>
         <Avatar src="avatar.png" alt="it's me" radius="xl" />
         <Text
@@ -48,122 +67,59 @@ export function DropDown() {
           backgroundColor: isBackground ? "white" : "#1d2227",
         }}
       >
-        <DropdownOrg>
-          {state ? (
-            <ul onMouseEnter={showDropdown}>
-              <li>
-                <ArrowNarrowRight
-                  size={15}
-                  strokeWidth={2}
-                  color={"black"}
-                  style={{
-                    paddingRight: "5%",
-                  }}
-                />
+        <DropdownOrg onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+          {isDropdownOpen && (
+            <ul ref={dropdownRef}>
+              <DropdownItem>
+                <Icon />
                 Organization Overview
-              </li>
-              <li>
-                <ArrowNarrowRight
-                  size={15}
-                  strokeWidth={2}
-                  color={"black"}
-                  style={{
-                    paddingRight: "5%",
-                  }}
-                />
+              </DropdownItem>
+              <DropdownItem>
+                <Icon />
                 Manage Organization
-              </li>
-              <li>
-                <ArrowNarrowRight
-                  size={15}
-                  strokeWidth={2}
-                  color={"black"}
-                  style={{
-                    paddingRight: "5%",
-                  }}
-                />
+              </DropdownItem>
+              <DropdownItem>
+                <Icon />
                 Billing & Invoices
-              </li>
-              <li>
-                <ArrowNarrowRight
-                  size={15}
-                  strokeWidth={2}
-                  color={"black"}
-                  style={{
-                    paddingRight: "5%",
-                  }}
-                />
+              </DropdownItem>
+              <DropdownItem>
+                <Icon />
                 Upgrade Plan
-              </li>
+              </DropdownItem>
             </ul>
-          ) : null}
+          )}
         </DropdownOrg>
         <DropdownAcc>
-          {state ? (
-            <ul onMouseEnter={showDropdown}>
-              <li>
-                <ArrowNarrowRight
-                  size={15}
-                  strokeWidth={2}
-                  color={"black"}
-                  style={{
-                    paddingRight: "5%",
-                  }}
-                />
+          {isDropdownOpen && (
+            <ul>
+              <DropdownItem>
+                <Icon />
                 Organization Overview
-              </li>
-              <li>
-                <ArrowNarrowRight
-                  size={15}
-                  strokeWidth={2}
-                  color={"black"}
-                  style={{
-                    paddingRight: "5%",
-                  }}
-                />
+              </DropdownItem>
+              <DropdownItem>
+                <Icon />
                 Manage Organization
-              </li>
-              <li>
-                <ArrowNarrowRight
-                  size={15}
-                  strokeWidth={2}
-                  color={"black"}
-                  style={{
-                    paddingRight: "5%",
-                  }}
-                />
+              </DropdownItem>
+              <DropdownItem>
+                <Icon />
                 Billing & Invoices
-              </li>
-              <li>
-                <ArrowNarrowRight
-                  size={15}
-                  strokeWidth={2}
-                  color={"black"}
-                  style={{
-                    paddingRight: "5%",
-                  }}
-                />
+              </DropdownItem>
+              <DropdownItem>
+                <Icon />
                 Upgrade Plan
-              </li>
+              </DropdownItem>
             </ul>
-          ) : null}
+          )}
         </DropdownAcc>
         <SignOut>
-          {state ? (
-            <ul onMouseEnter={showDropdown}>
-              <li>
-                <ArrowNarrowRight
-                  size={15}
-                  strokeWidth={2}
-                  color={"black"}
-                  style={{
-                    paddingRight: "5%",
-                  }}
-                />
+          {isDropdownOpen && (
+            <ul>
+              <DropdownItem>
+                <Icon />
                 Sign out
-              </li>
+              </DropdownItem>
             </ul>
-          ) : null}
+          )}
         </SignOut>
       </DropdownMenu>
     </Dropdown>

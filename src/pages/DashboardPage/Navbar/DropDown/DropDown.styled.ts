@@ -22,11 +22,10 @@ export const DropdownMenu = styled.div`
   color: #333;
   border-radius: 5.5px;
   z-index: 1000;
-
   & ul {
     list-style-type: none;
     padding-left: 10px;
-    width: 300px;
+    width: 280px;
     padding-right: 10px;
   }
   & li {
@@ -36,10 +35,6 @@ export const DropdownMenu = styled.div`
     text-decoration: none;
     font-size: 15px;
     padding: 10px 5px;
-  }
-  & ul li:hover {
-    background-color: #dcdcdc;
-    border-radius: 1px solid #dcdcdc;
   }
 `;
 export const DropdownOrg = styled.div`
@@ -67,5 +62,13 @@ export const SignOut = styled.div`
     list-style-type: none;
     padding-left: 10px;
     padding-right: 10px;
+  }
+`;
+export const DropdownItem = styled.div`
+  padding: 10px;
+  margin-bottom: 10px;
+  &:hover {
+    background-color: #dcdcdc;
+    border-radius: 1px solid #dcdcdc;
   }
 `;

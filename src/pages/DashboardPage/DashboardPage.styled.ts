@@ -18,6 +18,6 @@ export const Navbar = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  width: 15%;
+  max-width: 100%;
   overflow-x: hidden;
 `;
