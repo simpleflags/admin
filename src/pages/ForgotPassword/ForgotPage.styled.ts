@@ -9,7 +9,7 @@ export const PageWrapper = styled.div`
 export const LogoTitle = styled.h1`
   margin-left: 10px;
   font-weight: 700;
-  font-size: 24px;
+  font-size: ${(props) => props.theme.font.sizeLarge};
 `;
 
 export const ImageSection = styled.section`

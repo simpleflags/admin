@@ -22,5 +22,5 @@ export const FormWrapper = styled.div`
 
 export const InputsWrapper = styled.div`
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: ${(props) => props.theme.spacing.small};
 `;
