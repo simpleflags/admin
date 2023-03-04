@@ -1,58 +1,49 @@
 import styled from "styled-components";
 
 export const Dropdown = styled.div`
-  padding-right: 10px;
-  color: black;
-  background-color: #1d2227;
+  padding-right: ${(props) => props.theme.spacing.small};
+  color: ${(props) => props.theme.colors.black};
 `;
 export const Profile = styled.div`
   display: flex;
-  gap: 20px;
+  gap: ${(props) => props.theme.spacing.large};
   text-align: center;
   border-bottom: 0.5px solid #999;
-  padding: 10px;
+  padding: ${(props) => props.theme.spacing.small};
+
   font-size: 14px;
-  color: white;
+  color: ${(props) => props.theme.colors.white};
   cursor: pointer;
   width: 100%;
 `;
 export const DropdownMenu = styled.div`
-  color: black;
   position: absolute;
-  color: #333;
+  color: ${(props) => props.theme.colors.black};
   border-radius: 5.5px;
   z-index: 1000;
   & ul {
     list-style-type: none;
-    padding-left: 10px;
+    padding: ${(props) => props.theme.spacing.none}
+      ${(props) => props.theme.spacing.small};
     width: 280px;
-    padding-right: 10px;
   }
   & li {
     display: flex;
     cursor: pointer;
-    margin-bottom: 10px;
+    margin-bottom: ${(props) => props.theme.spacing.small};
     text-decoration: none;
-    font-size: 15px;
-    padding: 10px 5px;
+    font-size: ${(props) => props.theme.font.sizeNormal};
+    padding: ${(props) => props.theme.spacing.small}
+      ${(props) => props.theme.spacing.xsmall};
   }
 `;
-export const DropdownOrg = styled.div`
+export const DropdownGroup = styled.div`
   display: block;
 
   & ul {
     list-style-type: none;
     border-bottom: 0.5px solid #0000001f;
-    padding-right: 10px;
-  }
-`;
-
-export const DropdownAcc = styled.div`
-  display: block;
-  & ul {
-    list-style-type: none;
-    border-bottom: 0.5px solid #0000001f;
-    padding-right: 10px;
+    padding-right: ${(props) => props.theme.spacing.small};
   }
 `;
 
@@ -60,15 +51,15 @@ export const SignOut = styled.div`
   display: block;
   & ul {
     list-style-type: none;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: ${(props) => props.theme.spacing.small};
+    padding-right: ${(props) => props.theme.spacing.small};
   }
 `;
 export const DropdownItem = styled.div`
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: ${(props) => props.theme.spacing.small};
+  margin-bottom: ${(props) => props.theme.spacing.small};
   &:hover {
-    background-color: #dcdcdc;
-    border-radius: 1px solid #dcdcdc;
+    background-color: ${(props) => props.theme.colors.gainsBoro};
+    border-radius: 1px solid ${(props) => props.theme.colors.gainsBoro};
   }
 `;

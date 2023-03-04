@@ -5,8 +5,7 @@ import { Profile } from "./DropDown.styled";
 import {
   Dropdown,
   DropdownMenu,
-  DropdownAcc,
-  DropdownOrg,
+  DropdownGroup,
   DropdownItem,
   SignOut,
 } from "./DropDown.styled";
@@ -67,7 +66,7 @@ export function DropDown() {
           backgroundColor: isBackground ? "white" : "#1d2227",
         }}
       >
-        <DropdownOrg onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+        <DropdownGroup onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
           {isDropdownOpen && (
             <ul ref={dropdownRef}>
               <DropdownItem>
@@ -88,8 +87,8 @@ export function DropDown() {
               </DropdownItem>
             </ul>
           )}
-        </DropdownOrg>
-        <DropdownAcc>
+        </DropdownGroup>
+        <DropdownGroup>
           {isDropdownOpen && (
             <ul>
               <DropdownItem>
@@ -110,7 +109,7 @@ export function DropDown() {
               </DropdownItem>
             </ul>
           )}
-        </DropdownAcc>
+        </DropdownGroup>
         <SignOut>
           {isDropdownOpen && (
             <ul>

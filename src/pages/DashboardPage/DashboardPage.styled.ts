@@ -7,14 +7,14 @@ export const PageWrapper = styled.div`
 `;
 
 export const DashboardHome = styled.div`
-  background-color: orange;
+  background-color: ${(props) => props.theme.colors.orange};
   width: 100%;
 `;
 
 export const Navbar = styled.div`
   display: flex;
   background-color: #1d2227;
-  color: #fff;
+  color: ${(props) => props.theme.colors.white};
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
