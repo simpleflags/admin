@@ -10,11 +10,12 @@ import {
   SignOut,
 } from "./DropDown.styled";
 import { Text } from "@mantine/core";
+import { useNavigate } from "react-router-dom";
 
 export function DropDown() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLUListElement>(null);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const handleClickOutside = (event: any) => {
       if (dropdownRef.current && !dropdownRef.current?.contains(event.target)) {
@@ -69,19 +70,19 @@ export function DropDown() {
         <DropdownGroup onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
           {isDropdownOpen && (
             <ul ref={dropdownRef}>
-              <DropdownItem>
+              <DropdownItem onClick={() => navigate("/dashboard/organization")}>
                 <Icon />
                 Organization Overview
               </DropdownItem>
-              <DropdownItem>
+              <DropdownItem onClick={() => navigate("/dashboard/manage")}>
                 <Icon />
                 Manage Organization
               </DropdownItem>
-              <DropdownItem>
+              <DropdownItem onClick={() => navigate("/dashboard/billing")}>
                 <Icon />
                 Billing & Invoices
               </DropdownItem>
-              <DropdownItem>
+              <DropdownItem onClick={() => navigate("/dashboard/plans")}>
                 <Icon />
                 Upgrade Plan
               </DropdownItem>
@@ -90,22 +91,26 @@ export function DropDown() {
         </DropdownGroup>
         <DropdownGroup>
           {isDropdownOpen && (
-            <ul>
-              <DropdownItem>
+            <ul ref={dropdownRef}>
+              <DropdownItem onClick={() => navigate("/dashboard/plans")}>
                 <Icon />
-                Organization Overview
+                MyAccount
               </DropdownItem>
-              <DropdownItem>
+              <DropdownItem
+                onClick={() => navigate("/dashboard/api-credentials")}
+              >
                 <Icon />
-                Manage Organization
+                My API Credentials
               </DropdownItem>
-              <DropdownItem>
+              <DropdownItem
+                onClick={() => navigate("/dashboard/my-memberships")}
+              >
                 <Icon />
-                Billing & Invoices
+                My Memberships
               </DropdownItem>
-              <DropdownItem>
+              <DropdownItem onClick={() => navigate("/dashboard/flags-report")}>
                 <Icon />
-                Upgrade Plan
+                My Flags Report
               </DropdownItem>
             </ul>
           )}
