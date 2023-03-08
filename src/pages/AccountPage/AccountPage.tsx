@@ -1,3 +1,4 @@
+import { Routes } from "react-router-dom";
 import { PageWrapper } from "./AccountPage.styled";
 
 export function AccountPage() {

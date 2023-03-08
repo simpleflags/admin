@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
-  width: 100%;
-  height: 100%:
-`;
 export const TopmenuContainer = styled.div`
   position: sticky;
   top: 0;
@@ -52,17 +48,11 @@ export const Items = styled.div`
   padding: 0.5rem 1.8rem;
   display: inline-block;
   text-decoration: none;
-`;
+  //   color: ${({ active }) => (active ? "red" : "black")};
+  //   border-bottom: ${({ active }) => (active ? "2px solid black" : "")};
 
-// &:after {
-//   content: "";
-//   display: block;
-//   width: 0;
-//   height: 2px;
-//   background: black;
-//   transition: width 0.3s;
-// }
-// &:hover::after {
-//   width: 100%;
-//   // transition: width 0.3s;
-// }
+  //   &:hover {
+  //     color: black;
+  //     border-bottom: ${({ active }) => (active ? "2px solid black" : "")};
+  //   }
+`;

@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 
 export function DropDown() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const dropdownRef = useRef<HTMLUListElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   useEffect(() => {
     const handleClickOutside = (event: any) => {
@@ -62,70 +62,70 @@ export function DropDown() {
         />
       </Profile>
 
-      <DropdownMenu
-        style={{
-          backgroundColor: isBackground ? "white" : "#1d2227",
-        }}
-      >
-        <DropdownGroup onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-          {isDropdownOpen && (
-            <ul ref={dropdownRef}>
-              <DropdownItem onClick={() => navigate("/dashboard/organization")}>
+      {isDropdownOpen && (
+        <DropdownMenu
+          style={{
+            backgroundColor: isBackground ? "white" : "#1d2227",
+          }}
+          ref={dropdownRef}
+        >
+          <DropdownGroup>
+            <ul>
+              <DropdownItem
+                onClick={() => {
+                  console.log("click");
+                  navigate("/organization");
+                }}
+              >
                 <Icon />
                 Organization Overview
               </DropdownItem>
-              <DropdownItem onClick={() => navigate("/dashboard/manage")}>
+              <DropdownItem onClick={() => navigate("/members")}>
                 <Icon />
                 Manage Organization
               </DropdownItem>
-              <DropdownItem onClick={() => navigate("/dashboard/billing")}>
+              <DropdownItem onClick={() => navigate("/billing")}>
                 <Icon />
                 Billing & Invoices
               </DropdownItem>
-              <DropdownItem onClick={() => navigate("/dashboard/plans")}>
+              <DropdownItem onClick={() => navigate("/plans")}>
                 <Icon />
                 Upgrade Plan
               </DropdownItem>
             </ul>
-          )}
-        </DropdownGroup>
-        <DropdownGroup>
-          {isDropdownOpen && (
-            <ul ref={dropdownRef}>
-              <DropdownItem onClick={() => navigate("/dashboard/plans")}>
+          </DropdownGroup>
+          <DropdownGroup>
+            <ul>
+              <DropdownItem onClick={() => navigate("/my-account/")}>
                 <Icon />
                 MyAccount
               </DropdownItem>
-              <DropdownItem
-                onClick={() => navigate("/dashboard/api-credentials")}
-              >
+              <DropdownItem onClick={() => navigate("/api-credentials")}>
                 <Icon />
                 My API Credentials
               </DropdownItem>
-              <DropdownItem
-                onClick={() => navigate("/dashboard/my-memberships")}
-              >
+              <DropdownItem onClick={() => navigate("/my-memberships")}>
                 <Icon />
                 My Memberships
               </DropdownItem>
-              <DropdownItem onClick={() => navigate("/dashboard/flags-report")}>
+              <DropdownItem onClick={() => navigate("/flags-report")}>
                 <Icon />
                 My Flags Report
               </DropdownItem>
             </ul>
-          )}
-        </DropdownGroup>
-        <SignOut>
-          {isDropdownOpen && (
-            <ul>
-              <DropdownItem>
-                <Icon />
-                Sign out
-              </DropdownItem>
-            </ul>
-          )}
-        </SignOut>
-      </DropdownMenu>
+          </DropdownGroup>
+          <SignOut>
+            {isDropdownOpen && (
+              <ul>
+                <DropdownItem>
+                  <Icon />
+                  Sign out
+                </DropdownItem>
+              </ul>
+            )}
+          </SignOut>
+        </DropdownMenu>
+      )}
     </Dropdown>
   );
 }

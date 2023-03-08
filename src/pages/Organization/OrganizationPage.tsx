@@ -1,9 +1,14 @@
-import { Wrapper, WrapperPage } from "./OrganizationPage.styled";
+import { Routes } from "react-router-dom";
+import { TopNavigation } from "../../components/TopNavigation/TopNavigation";
+import { NavBarSection } from "../DashboardPage/Navbar/Nav";
+import { Wrapper } from "./OrganizationPage.styled";
 
-export function OrganizationPage() {
+export function OrganizationPage(props: { children: React.ReactNode }) {
+  const { children } = props;
   return (
     <Wrapper>
-      <WrapperPage>Organization PAge</WrapperPage>
+      <TopNavigation />
+      <Routes>{children}</Routes>
     </Wrapper>
   );
 }
