@@ -1,7 +1,7 @@
 import { Nav } from "./Nav.styled";
 import { Select, Text } from "@mantine/core";
 import { Search, Products } from "./Nav.styled";
-import { DropDown } from "./DropDown/DropDown";
+import { DropDown } from "../../../components/DropDown/DropDown";
 
 export function NavBarSection() {
   return (

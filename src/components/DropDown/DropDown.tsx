@@ -10,11 +10,12 @@ import {
   SignOut,
 } from "./DropDown.styled";
 import { Text } from "@mantine/core";
+import { useNavigate } from "react-router-dom";
 
 export function DropDown() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const dropdownRef = useRef<HTMLUListElement>(null);
-
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
   useEffect(() => {
     const handleClickOutside = (event: any) => {
       if (dropdownRef.current && !dropdownRef.current?.contains(event.target)) {
@@ -61,66 +62,70 @@ export function DropDown() {
         />
       </Profile>
 
-      <DropdownMenu
-        style={{
-          backgroundColor: isBackground ? "white" : "#1d2227",
-        }}
-      >
-        <DropdownGroup onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-          {isDropdownOpen && (
-            <ul ref={dropdownRef}>
-              <DropdownItem>
+      {isDropdownOpen && (
+        <DropdownMenu
+          style={{
+            backgroundColor: isBackground ? "white" : "#1d2227",
+          }}
+          ref={dropdownRef}
+        >
+          <DropdownGroup>
+            <ul>
+              <DropdownItem
+                onClick={() => {
+                  console.log("click");
+                  navigate("/organization");
+                }}
+              >
                 <Icon />
                 Organization Overview
               </DropdownItem>
-              <DropdownItem>
+              <DropdownItem onClick={() => navigate("/members")}>
                 <Icon />
                 Manage Organization
               </DropdownItem>
-              <DropdownItem>
+              <DropdownItem onClick={() => navigate("/billing")}>
                 <Icon />
                 Billing & Invoices
               </DropdownItem>
-              <DropdownItem>
+              <DropdownItem onClick={() => navigate("/plans")}>
                 <Icon />
                 Upgrade Plan
               </DropdownItem>
             </ul>
-          )}
-        </DropdownGroup>
-        <DropdownGroup>
-          {isDropdownOpen && (
+          </DropdownGroup>
+          <DropdownGroup>
             <ul>
-              <DropdownItem>
+              <DropdownItem onClick={() => navigate("/my-account/")}>
                 <Icon />
-                Organization Overview
+                MyAccount
               </DropdownItem>
-              <DropdownItem>
+              <DropdownItem onClick={() => navigate("/api-credentials")}>
                 <Icon />
-                Manage Organization
+                My API Credentials
               </DropdownItem>
-              <DropdownItem>
+              <DropdownItem onClick={() => navigate("/my-memberships")}>
                 <Icon />
-                Billing & Invoices
+                My Memberships
               </DropdownItem>
-              <DropdownItem>
+              <DropdownItem onClick={() => navigate("/flags-report")}>
                 <Icon />
-                Upgrade Plan
+                My Flags Report
               </DropdownItem>
             </ul>
-          )}
-        </DropdownGroup>
-        <SignOut>
-          {isDropdownOpen && (
-            <ul>
-              <DropdownItem>
-                <Icon />
-                Sign out
-              </DropdownItem>
-            </ul>
-          )}
-        </SignOut>
-      </DropdownMenu>
+          </DropdownGroup>
+          <SignOut>
+            {isDropdownOpen && (
+              <ul>
+                <DropdownItem>
+                  <Icon />
+                  Sign out
+                </DropdownItem>
+              </ul>
+            )}
+          </SignOut>
+        </DropdownMenu>
+      )}
     </Dropdown>
   );
 }

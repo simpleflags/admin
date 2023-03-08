@@ -7,7 +7,7 @@ export const PageWrapper = styled.div`
 `;
 
 export const DashboardHome = styled.div`
-  background-color: ${(props) => props.theme.colors.orange};
+  // background-color: ${(props) => props.theme.colors.orange};
   width: 100%;
 `;
 

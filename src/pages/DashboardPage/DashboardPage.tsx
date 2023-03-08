@@ -1,15 +1,18 @@
 import { PageWrapper, Navbar, DashboardHome } from "./DashboardPage.styled";
-import { Dashboard } from "../../containers/Dashboard/Dashboard";
-import { Nav } from "./Navbar/Nav.styled";
 import { NavBarSection } from "./Navbar/Nav";
-export function DashboardPage() {
+import { Routes } from "react-router-dom";
+import { Dashboard } from "../../containers/Dashboard/DashboardRightSide";
+export function DashboardPage(props: { children: React.ReactNode }) {
+  const { children } = props;
   return (
     <PageWrapper>
       <Navbar>
         <NavBarSection />
       </Navbar>
       <DashboardHome>
-        <Dashboard />
+        <Routes>{children}</Routes>
+
+        {/* <Dashboard /> */}
       </DashboardHome>
     </PageWrapper>
   );
